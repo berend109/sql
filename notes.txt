@@ -1,0 +1,4 @@
+root password: Test@1234!
+	Deze password is gekozen om verder in de lessen opdrachten aan te 
+	kunnen nemen en dat hij aan alle veiligheid voorwaarden voldoet en de 
+	uitvoering is lokaal en niet productie.
