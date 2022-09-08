@@ -65,21 +65,39 @@
 -- FROM Pres
 -- WHERE Death_age > 69 AND Party <> "Republican"
 -- 16.	In welke regeringen heeft een Roosevelt zitting gehad (als president of als vice-president)? 
-SELECT *
-FROM Pres
-WHERE Pres_name LIKE "Roosevelt%";
-
-SELECT *
-FROM Adm_prvp
-WHERE Pres_name LIKE "Roosevelt%" OR Vp_name LIKE "Roosevelt%";
+-- SELECT Party
+-- FROM Pres
+-- WHERE Pres_name IN
+-- (
+-- 	SELECT Pres_name -- mag in conditie maar 1 Operand hebben dus niet * of Pres_name, Vp_name etc.
+-- 	FROM Adm_prvp
+-- 	WHERE Pres_name LIKE "Roosevelt%" OR Vp_name LIKE "Roosevelt%"
+-- );
 -- 17.	Welke kandidaten bij presidentsverkiezingen hebben 0 stemmen gehaald ? 
-
+-- SELECT Cand_name
+-- FROM El_cand
+-- WHERE Votes = 0
 -- 18.	Welke verliezers van de presidentsverkiezingen hebben tussen 150 en 250 stemmen behaald ?  Toon naam en aantal stemmen en WL-indic (winn-loss-indicator)
-
+-- SELECT Cand_name, Votes, Wl_indic
+-- FROM El_cand
+-- WHERE Wl_indic = "L" AND Votes > 150 AND Votes < 250
 -- 19.	Welke presidenten zijn geboren in een van de zuidelijke staten (Georgia, South Carolina, Alabama, Mississippi, Louisiana, Texas, Arkansas, North Carolina, Tennessee, Virginia of Florida)? Toon presidentnaam en staatnaam en sorteer op presidentnaam.
-
+-- SELECT Pres_name, State_born
+-- FROM Pres
+-- WHERE State_born = "Georgia" OR State_born = "South Carolina" OR State_born = "Alabama" OR State_born = "Mississippi" OR State_born = "Louisiana" OR State_born = "Texas" OR State_born = "Arkansas" OR State_born = "North Carolina" OR State_born = "Tennessee" OR State_born = "Virginia" OR State_born = "Florida"
+-- ORDER BY Pres_name
 -- 20.	Welke presidenten zijn niet van de republikeinse partij? Toon presidentnaam en partij en sorteer op partijnaam aflopend en dan op presidentnaam oplopend.
-
+-- SELECT Pres_name, Party
+-- FROM Pres
+-- WHERE Party <> "Republican"
+-- ORDER BY Party DESC, Pres_name ASC
 -- 21.	Zijn er huwelijken met 5 of meer kinderen of maar met 1 kind? Laat zien welk huwelijk en hoeveel kinderen. Sorteer Oplopend.
-
+-- SELECT Pres_name, Sp_name, Nr_child
+-- FROM Pres_mar
+-- WHERE Nr_child = 1 OR Nr_child > 4
+-- ORDER BY Nr_child ASC
+-- ORDER BY Nr_child ASC
 -- 22.	Zijn er presidenten die gestorven zijn voor hun zestigste levensjaar?
+SELECT Pres_name, Death_age
+FROM Pres
+WHERE Death_age < 61 AND Death_age > 1
