@@ -27,16 +27,20 @@
 -- UPDATE Pres_hob SET Hobby = "Walking" WHERE Pres_name = "Trump D J" AND Hobby = "walking";
 -- SELECT * FROM Pres_hob;
 -- 6)	Verwijder de hobby’s Fishing en Riding uit de database met 1 DELETE-opdracht
+-- SELECT * FROM Pres_hob WHERE Hobby = "Fishing" OR Hobby = "Riding";
+-- SET SQL_SAFE_UPDATES=0; -- defualt is safe mode and there is no key in this table
+-- DELETE FROM Pres_hob WHERE Hobby = "Fishing" OR Hobby = "Riding";
 -- 7)	Verwijder alle records uit de hobby-tabel met DELETE
+
 -- 8)	Importeer ze weer snel met de SQL-file (staat klaar bij praktijkles 4)
 -- 9)	Voeg de 3 huwelijken van de president toe met INSERT (3 query’s) 
 -- 10)	Vul ook de tabellen adm_pres en adm_prvp aan met de ontbrekende gegevens (denk aan de invoervolgorde!)
--- 11)	 Maak je database compleet met de el-cand gegevens.
+-- 11)	Maak je database compleet met de el-cand gegevens.
 -- 12)	Voeg in de huwelijkstabel het veld divorce_date toe (scheidingsdatum), dit is een verplicht datumveld (type DATE)
 -- 13)	Zet voor iedereen dit veld op “2022-09-22” met een UPDATE Gebruik “<datum>”  
 -- 14)	Zet voor president Trump dit veld op de dag van vandaag voor zijn huwelijk met Melania met een UPDATE
 -- 15)	Verwijder het divorce_date-veld weer uit het ontwerp van de tabel met ALTER TABLE
 -- 16)	In de tabel EL_CAND wil men ook graag snel kunnen zoeken op de Cand_name. Hiervoor moet er een index aangemaakt worden. Maak een index aan met SQL in de tabel EL_CAND met commando CREATE INDEX. Je mag voor deze index zelf een naam bedenken.
 -- 17)	Verwijder met SQL (DROP INDEX) de nieuw aangemaakte index
--- 18)	 De tabel EL_CAND heeft nog geen PRIMARY KEY. Dit is een samengestelde sleutel van de eigenschap: Cand_name + El_Year. Voeg deze toe.
+-- 18)	De tabel EL_CAND heeft nog geen PRIMARY KEY. Dit is een samengestelde sleutel van de eigenschap: Cand_name + El_Year. Voeg deze toe.
 -- 19)	Verder deze PRIMARY KEY weer.
