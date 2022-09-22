@@ -11,7 +11,7 @@
 -- SELECT Pres_name FROM Pres WHERE Pres_name LIKE "R%";
 
 -- 5.	Toon de presidenten wiens achternaam op “ing” eindigt.
--- SELECT Pres_name FROM Pres WHERE Pres_name LIKE "%ing%";
+-- SELECT Pres_name FROM Pres WHERE Pres_name LIKE "%ing %";
 
 -- 6.	Zijn er presidenten waarbij de achternaam en hun hobby allebei met een “R” beginnen?
 -- SELECT * FROM Pres_hob WHERE Pres_name LIKE "R%" AND Hobby LIKE "R%";
@@ -23,10 +23,13 @@
 -- SELECT * FROM Pres_mar WHERE (SP_age <= 25 AND Nr_child >= 3) OR (SP_age >= 25 AND Nr_child = 0);
 
 -- 9.	Welke president en vrouw hebben geen kinderen uit een huwelijk gekregen en was het leeftijdsverschil tussen beide > 10 jaar. Toon in de uitvoer ook het verschil en geef deze kolom een mooie kolomnaam mee.
--- SELECT Pres_age, SP_age, ABS(Pres_age - SP_age) AS "Mooie kollom naam" FROM Pres_mar WHERE Nr_child = 0 AND ABS(Pres_age - SP_age) >= 10
+-- SELECT Pres_name, Sp_name, Pres_age, SP_age, nr_child, Pres_age - SP_age AS "leeftijd verschil" 
+-- FROM Pres_mar 
+-- WHERE Nr_child = 0 AND ABS(Pres_age - SP_age) > 1
+-- ORDER BY 6 DESC
 
 -- 10.	Welke presidenten, geboren in de periode 1800-1900 zijn voor hun 50e gestorven of na hun 80e verjaardag. Toon de Nederlandse kolomnamen: leeftijd_gestorven, geboortejaar en  president. (uitvoer is 3 records, gebruik haakjes!)
--- SELECT Pres_name AS president, Birth_Yr AS geboortejaar, Death_age AS leeftijd_gestorven FROM Pres WHERE Birth_Yr > 1800 AND Birth_Yr < 1901 AND (Death_age <= 50 or Death_age >= 80);
+-- SELECT Pres_name AS president, Birth_Yr AS geboortejaar, Death_age AS leeftijd_gestorven FROM Pres WHERE Birth_Yr >= 1800 AND Birth_Yr <= 1900 AND (Death_age <= 50 or Death_age >= 80);
 
 -- 11.	Welke presidenten zijn niet democratisch en komen uit Ohio of  ze zijn democratisch en komen uit New York of uit North Carolina. 
 -- SELECT * FROM Pres WHERE (Party <> "Democratic" AND State_born = "Ohio") OR (Party = "Democratic" AND (State_born = "New York" OR State_born = "Carolina"));
