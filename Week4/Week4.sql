@@ -76,11 +76,29 @@
 -- SELECT * from Pres_mar
 -- 15)	Verwijder het divorce_date-veld weer uit het ontwerp van de tabel met ALTER TABLE
 -- ALTER TABLE Pres_mar DROP COLUMN divorce_date;
-SELECT * FROM Pres_mar;
+-- SELECT * FROM Pres_mar;
 
 -- 16)	In de tabel EL_CAND wil men ook graag snel kunnen zoeken op de Cand_name. Hiervoor moet er een index aangemaakt worden. Maak een index aan met SQL in de tabel EL_CAND met commando CREATE INDEX. Je mag voor deze index zelf een naam bedenken.
+-- volle uitleg https://www.youtube.com/watch?v=fsG1XaZEa78
+-- om tijd winst te zien. 
+-- 0.0086 sec
+-- SELECT COUNT(Cand_name)
+-- FROM El_cand;
 
+-- 0.027 sec
+-- CREATE INDEX Kandidaat_naam
+-- ON El_cand (Cand_name);
+
+-- 0.0029 sec
+-- SELECT COUNT(Cand_name)
+-- FROM El_cand;
 
 -- 17)	Verwijder met SQL (DROP INDEX) de nieuw aangemaakte index
+-- DROP INDEX Kandidaat_naam ON El_cand;
 -- 18)	De tabel EL_CAND heeft nog geen PRIMARY KEY. Dit is een samengestelde sleutel van de eigenschap: Cand_name + El_Year. Voeg deze toe.
+-- ALTER TABLE <tabel_naam>  ADD PRIMARY KEY ( <attribuut1>, <attribuut2>);
+-- ALTER TABLE El_cand ADD PRIMARY KEY (Cand_name, El_year);
+-- SHOW KEYS FROM El_cand;
 -- 19)	Verder deze PRIMARY KEY weer.
+-- ALTER TABLE El_cand DROP PRIMARY KEY;
+SHOW KEYS FROM El_cand;
